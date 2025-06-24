@@ -1,0 +1,531 @@
+:root {
+    --azul-oscuro: #14213d;
+    --azul-medicina: #2a9d8f;
+    --azul-suave: #99d5c9;
+    --gris-fondo: #f4f6f8;
+    --blanco: #ffffff;
+    --sombra: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --sombra-sutil: 0 2px 5px rgba(0, 0, 0, 0.03);
+    --borde-radio: 8px;
+    --transicion-rapida: 0.2s ease;
+    --transicion-suave: 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--azul-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.main-header {
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--sombra);
+    width: 100%;
+}
+
+.header-left .page-title {
+    color: var(--blanco);
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.header-right .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.header-right .nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+    transition: color var(--transicion-rapida);
+}
+
+.header-right .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--blanco);
+    transition: width var(--transicion-rapida);
+}
+
+.header-right .nav-links a:hover {
+    color: var(--azul-suave);
+}
+
+.header-right .nav-links a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .header-left {
+        margin-bottom: 15px;
+    }
+
+    .header-right .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+.main-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--blanco);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra);
+    padding: 30px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    flex-grow: 1;
+}
+
+.calendar-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+.calendar-container {
+    background-color: var(--blanco);
+    border-radius: var(--borde-radio);
+    padding: 20px;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--azul-oscuro);
+}
+
+.calendar-header button {
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color var(--transicion-suave);
+}
+
+.calendar-header button:hover {
+    background-color: #217d72;
+}
+
+.calendar-weekdays,
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-weekdays div {
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    padding: 10px 0;
+}
+
+.calendar-dates div {
+    padding: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transicion-rapida), color var(--transicion-rapida);
+}
+
+.calendar-dates div:not(.empty-day):hover {
+    background-color: var(--azul-suave);
+    color: var(--azul-oscuro);
+}
+
+.calendar-dates div.current-day {
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.calendar-dates div.current-day:hover {
+    background-color: #217d72;
+}
+
+.calendar-dates div.empty-day {
+    visibility: hidden;
+}
+
+.info-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info-container {
+    background-color: var(--gris-fondo);
+    border-radius: var(--borde-radio);
+    padding: 25px;
+    width: 100%;
+    box-shadow: var(--sombra-sutil);
+}
+
+.info-container h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.info-container h3 span {
+    color: var(--azul-medicina);
+}
+
+.info-content {
+    margin-bottom: 25px;
+}
+
+.info-content h4 {
+    color: var(--azul-oscuro);
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 1px solid var(--azul-suave);
+    padding-bottom: 5px;
+}
+
+.info-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.info-content ul li {
+    background-color: var(--blanco);
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: var(--sombra-sutil);
+    display: flex;
+    align-items: center;
+    transition: transform var(--transicion-rapida);
+}
+
+.info-content ul li:hover {
+    transform: translateX(5px);
+}
+
+.info-content ul li::before {
+    content: "•";
+    color: var(--azul-medicina);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Estilo para los botones "Añadir Comida" y "Añadir Ejercicio" */
+.add-item-button {
+    display: block;
+    width: 100%;
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 15px; /* Menos padding que el FAB */
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1em; /* Menos tamaño de fuente que el FAB */
+    font-weight: bold;
+    transition: background-color var(--transicion-suave), transform var(--transicion-rapida);
+    text-align: center;
+    margin-top: 15px; /* Espacio superior */
+}
+
+.add-item-button:hover {
+    background-color: #217d72;
+    transform: translateY(-2px);
+}
+
+/* Nuevo estilo para el botón "Ver Progreso" */
+.view-progress-button {
+    display: block;
+    width: 100%;
+    background-color: var(--azul-oscuro); /* Un color diferente para destacarlo */
+    color: var(--blanco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color var(--transicion-suave), transform var(--transicion-rapida);
+    text-align: center;
+    margin-top: 30px; /* Más espacio superior para separarlo de los "añadir" */
+}
+
+.view-progress-button:hover {
+    background-color: #0f1a30;
+    transform: translateY(-2px);
+}
+
+
+/* Floating Action Button (FAB) para el chat */
+.fab-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+    transition: background-color var(--transicion-suave), transform var(--transicion-suave);
+    z-index: 900;
+}
+
+.fab-chat:hover {
+    background-color: #0f1a30;
+    transform: translateY(-5px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--gris-fondo);
+    margin: auto;
+    padding: 20px;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: var(--azul-oscuro);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--azul-medicina);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--azul-oscuro);
+}
+
+/* Estilos para formularios dentro de modales */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content form label {
+    font-weight: 600;
+    color: var(--azul-oscuro);
+}
+
+.modal-content form input[type="text"],
+.modal-content form input[type="number"],
+.modal-content form textarea { /* Quitamos date y time de aquí */
+    padding: 10px;
+    border: 1px solid var(--azul-suave);
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    background-color: var(--blanco);
+    color: var(--azul-oscuro);
+}
+
+.modal-content form input:focus,
+.modal-content form textarea:focus {
+    border-color: var(--azul-medicina);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color var(--transicion-suave), transform var(--transicion-rapida);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #217d72;
+    transform: translateY(-2px);
+}
+
+
+/* Chat interface within modal */
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chatMessages {
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid var(--azul-suave);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--blanco);
+}
+
+#chatInput {
+    padding: 10px;
+    border: 1px solid var(--azul-suave);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#sendMessage {
+    padding: 10px 15px;
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transicion-suave);
+}
+
+#sendMessage:hover {
+    background-color: #217d72;
+}
+
+/* Estilos específicos para el contenido del modal de progreso */
+.progress-chart-placeholder {
+    background-color: var(--blanco);
+    border: 1px solid var(--azul-suave);
+    border-radius: var(--borde-radio);
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    box-shadow: var(--sombra-sutil);
+}
+
+.progress-chart-placeholder h5 {
+    color: var(--azul-oscuro);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.progress-chart-placeholder p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        margin: 20px auto;
+    }
+
+    .calendar-section, .info-section {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .fab-chat {
+        font-size: 0.9em;
+        padding: 12px 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+}

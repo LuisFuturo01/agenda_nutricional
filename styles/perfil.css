@@ -1,0 +1,163 @@
+/* perfil.css */
+
+/* Importar fuentes y variables de agenda.css si es necesario, o definir aquí */
+/* @import url('agenda.css');  Si agenda.css fuera para estilos generales base */
+
+/* Estilos para la sección de perfil */
+.profile-section {
+    background-color: var(--blanco); /* Usamos --blanco de agenda.css */
+    border-radius: var(--borde-radio); /* Usamos --borde-radio de agenda.css */
+    box-shadow: var(--sombra); /* Usamos --sombra de agenda.css */
+    padding: 30px;
+    width: 100%;
+    max-width: 700px; /* Ancho máximo para el formulario de perfil */
+    margin: 30px auto; /* Centrar en la página */
+}
+
+.profile-section h2 {
+    text-align: center;
+    color: var(--azul-oscuro); /* Usamos --azul-oscuro de agenda.css */
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Contenedor de mensajes de éxito/error */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: var(--borde-radio);
+    font-weight: bold;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde oscuro */
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da; /* Rojo claro */
+    color: #721c24; /* Rojo oscuro */
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #d1ecf1; /* Azul claro */
+    color: #0c5460; /* Azul oscuro */
+    border: 1px solid #bee5eb;
+}
+
+/* Estilos para fieldset (agrupación de campos) */
+fieldset {
+    border: 1px solid var(--azul-suave); /* Usamos --azul-suave de agenda.css */
+    border-radius: var(--borde-radio);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra-sutil);
+}
+
+fieldset legend {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--azul-medicina); /* Usamos --azul-medicina de agenda.css */
+    padding: 0 10px;
+    margin-left: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--azul-suave);
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: var(--gris-fondo); /* Fondo suave para los inputs */
+    color: var(--azul-oscuro);
+}
+
+.form-group input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--azul-medicina);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.85em;
+}
+
+/* Reutilizamos el estilo del botón de submit de agenda.css */
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: var(--azul-medicina);
+    color: var(--blanco);
+    border: none;
+    padding: 15px 25px;
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color var(--transicion-suave), transform var(--transicion-rapida);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #217d72;
+    transform: translateY(-2px);
+}
+
+/* Responsividad básica */
+@media (max-width: 768px) {
+    .profile-section {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .profile-section h2 {
+        font-size: 1.8em;
+    }
+
+    fieldset {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    fieldset legend {
+        font-size: 1.2em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+    }
+
+    .submit-button {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+}

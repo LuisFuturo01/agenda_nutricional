@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutrintel - Bienestar con Inteligencia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"  href="../styles/index.css">
+  </head>
+  <body>
+    <input type="hidden0" id="inicio" style="position: absolute;" />
+    <header >
+      <h1>Nutrintel</h1>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#funciones">Funciones</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="login.php">Ingresar</a>
+        <a href="registro.php">Registrarse</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Planifica tu bienestar, optimiza tu salud</h2>
+        <div class="images">
+            <img src="../images/fisico-portal.jpg" alt="Gente asiendo ejercicio">
+            <img src="../images/nutricion-portal.jpeg" alt="nutricion saludable">
+        </div>
+        <p>
+          Una plataforma completa de seguimiento nutricional, control físico y
+          recomendaciones inteligentes que se adaptan a ti. Ideal para quienes
+          buscan mejorar hábitos, controlar su salud y llevar un estilo de vida
+          más consciente. 
+          <br><span>¡Es momento de dar el siguiente paso!</span>
+        </p>
+        <div class="cta">
+          <a href="registro.php">Haz click para comenzar</a>
+        </div>
+      </section>
+      <span id="funciones"></span>
+      <br><br><br>
+
+      <section class="section">
+        <fieldset>
+          <legend>Funciones Clave</legend>
+          <div class="features">
+            <div class="card">
+              <h3>🍽️ Registro alimenticio</h3>
+              <p>
+                Documenta tus comidas, evalúa tus hábitos y recibe alertas si te
+                desvías de tus objetivos.
+              </p>
+            </div>
+            <div class="card">
+              <h3>📊 Progreso físico</h3>
+              <p>
+                Gráficas dinámicas de peso, masa muscular, IMC y metas por
+                semana o mes.
+              </p>
+            </div>
+            <div class="card">
+              <h3>🤖 Recomendaciones por IA </h3>
+              <p>
+                Algoritmos que aprenden de tus rutinas y te dan consejos
+                prácticos, desde recetas hasta rutinas de ejercicios.
+              </p>
+            </div>
+            <div class="card">
+              <h3>💬 Chat con IA</h3>
+              <p>
+                Tips semanales, blogs interactivos y evaluaciones para mejorar
+                tu conocimiento en salud.
+              </p>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="section" id="beneficios">
+        <fieldset>
+          <legend>Beneficios que importan</legend>
+          <details>
+            <summary>✔ 100% online, sin instalaciones</summary>
+            <p class="benefit">
+              Accede desde cualquier dispositivo sin descargar nada.
+            </p>
+          </details>
+          <details>
+            <summary>✔ Datos seguros y sincronizados</summary>
+            <p class="benefit">
+              Tus datos están protegidos y disponibles donde los necesites.
+            </p>
+          </details>
+          <details>
+            <summary>✔ Planes flexibles y adaptados</summary>
+            <p class="benefit">
+              Recomendaciones que se ajustan a tus necesidades personales.
+            </p>
+          </details>
+          <details>
+            <summary>✔ Soporte humano + IA</summary>
+            <p class="benefit">
+              Combina inteligencia artificial con asistencia real de expertos.
+            </p>
+          </details>
+        </fieldset>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 AgendaNutri | Tu salud potenciada por la tecnología</p>
+    </footer>
+    <script src="../scripts/index.js"></script>
+  </body>
 </html>
