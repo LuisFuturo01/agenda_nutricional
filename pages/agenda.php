@@ -22,9 +22,9 @@
         <div class="header-right">
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#">Perfil</a></li>
-                    <li><a href="logout.php">Cerrar Sesión</a></li>
+                    <li><a href="#" id="logout">Cerrar Sesión</a></li>
                 </ul>
             </nav>
         </div>
@@ -99,69 +99,18 @@
             </div>
         </div>
     </div>
-
-    <div id="addMealModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="closeAddMealBtn">&times;</span>
-            <h4>🍽️ Registrar Nueva Comida</h4>
-            <form id="addMealForm">
-                <label for="mealName">Nombre del Alimento:</label>
-                <input type="text" id="mealName" name="mealName" required>
-
-                <label for="mealQuantity">Cantidad (gramos):</label>
-                <input type="number" id="mealQuantity" name="mealQuantity" min="1" required>
-
-                <button type="submit" class="submit-button">Registrar Comida</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="addExerciseModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="closeAddExerciseBtn">&times;</span>
-            <h4>💪 Registrar Nuevo Ejercicio</h4>
-            <form id="addExerciseForm">
-                <label for="exerciseTitle">Título del Ejercicio:</label>
-                <input type="text" id="exerciseTitle" name="exerciseTitle" required>
-
-                <label for="exerciseDesc">Descripción (series, repeticiones, duración):</label>
-                <textarea id="exerciseDesc" name="exerciseDesc" rows="3"></textarea>
-
-                <button type="submit" class="submit-button">Registrar Ejercicio</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="progressModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="closeProgressBtn">&times;</span>
-            <h4>📊 Tu Progreso General</h4>
-            <div id="progressContent">
-                <p>Aquí verás gráficos y estadísticas de tu progreso a lo largo del tiempo.</p>
-                <div class="progress-chart-placeholder">
-                    <h5>Peso Corporal</h5>
-                    <p>Gráfico de evolución de peso (simulado).</p>
-                    </div>
-                <div class="progress-chart-placeholder">
-                    <h5>Calorías Consumidas (Promedio Semanal)</h5>
-                    <p>Gráfico de ingesta calórica promedio (simulado).</p>
-                </div>
-                <div class="progress-chart-placeholder">
-                    <h5>Actividad Física (Minutos Semanales)</h5>
-                    <p>Gráfico de tiempo de ejercicio (simulado).</p>
-                </div>
-                <p>¡Sigue así para alcanzar tus metas!</p>
-            </div>
-        </div>
-    </div>
-
+<?php
+    include './components/mealModa.php';
+    include './components/exerciseModal.php';
+    include './components/progressModal.php';
+?>
 
     <footer>
         <p>&copy; 2025 Nutrintel | Tu salud potenciada por la tecnología</p>
     </footer>
 
-    <script src="../scripts/agenda.js"></script>
-    <script src="../scripts/addMealModal.js"></script>
-    <script src="../scripts/addExerciseModal.js"></script>
+    <script type="module" src="../scripts/agenda.js"></script>
+    <script type="module" src="../scripts/addMealModal.js"></script>
+    <script type="module" src="../scripts/addExerciseModal.js"></script>
 </body>
 </html>

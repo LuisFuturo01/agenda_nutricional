@@ -195,6 +195,9 @@ body {
 .calendar-dates div.empty-day {
     visibility: hidden;
 }
+.today{
+    outline: 2px solid var(--azul-medicina);
+}
 
 .info-section {
     flex: 1;
