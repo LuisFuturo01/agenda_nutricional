@@ -8,16 +8,9 @@
     <link rel="stylesheet" href="../styles/agenda.css">
 </head>
 <body>
-    <?php
-        $usuario_id_simulado = 1;
-        $nombre_usuario_simulado = "Juan Pérez";
-        $objetivo_usuario_simulado = "Ganar masa muscular y mejorar resistencia";
-        $recomendacion_ia_hoy_simulada = "Hoy concéntrate en proteínas magras y carbohidratos complejos para tu cena. Intenta añadir 30 minutos de entrenamiento de fuerza.";
-    ?>
-
     <header class="main-header">
         <div class="header-left">
-            <h1 class="page-title">Nutrintel - Agenda de <?php echo htmlspecialchars($nombre_usuario_simulado); ?></h1>
+            <h1 class="page-title">Nutrintel - Agenda de <span id='user_name'></span></h1>
         </div>
         <div class="header-right">
             <nav>
@@ -59,7 +52,7 @@
                 <div class="info-content">
                     <h4>✨ Recomendación IA para hoy</h4>
                     <p id="iaRecommendation">
-                        <?php echo htmlspecialchars($recomendacion_ia_hoy_simulada); ?>
+                        <span id='recomendacion'>c</span>
                     </p>
                 </div>
 
@@ -93,7 +86,7 @@
             <h4>💬 Chatea con Nutrintel IA</h4>
             <div class="chat-interface">
                 <div id="chatMessages">
-                    <p><strong>Nutrintel IA:</strong> ¡Hola! Soy tu asistente personal. Tu objetivo actual es **<?php echo htmlspecialchars($objetivo_usuario_simulado); ?>**. ¿En qué puedo ayudarte hoy?</p>
+                    <p><strong>Nutrintel IA:</strong> ¡Hola! Soy tu asistente personal. Tu objetivo actual es **<span id='objetivo'></span>**. ¿En qué puedo ayudarte hoy?</p>
                 </div>
                 <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
                 <button id="sendMessage">Enviar</button>
