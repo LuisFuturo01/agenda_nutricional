@@ -83,3 +83,7 @@ export const consultarAlimentoDelDia = async (alimento, fecha) => {
         return { estado: "error", message: "Error al recibir la consulta"}
     }
 }
+
+export const eliminarAlimento = async ()=>{
+    return 0;
+}

@@ -1,5 +1,8 @@
-import {getCookie,deleteCookie} from './cookies.js';
+import { getCookie,deleteCookie } from './cookies.js';
+import { obtenerNombre } from './enpoint/userDates.js';
+
 if( getCookie( "usuario" == null)) window.location.href = "./login.php";
+window.idUser = "1" ; //cambiar por el id real
 const calendarDates = document.getElementById('calendarDates');
 const currentMonthYear = document.getElementById('currentMonthYear');
 const prevMonthBtn = document.getElementById('prevMonth');
@@ -58,7 +61,6 @@ nextMonthBtn.addEventListener('click', () => {
 });
 renderCalendar();
 
-/* Menejo del cookie de sesion logout */
 document.getElementById("logout").addEventListener("click", (e) => {
     e.preventDefault();
     const logout = confirm("¿Seguro que quieres cerrar sesión?");
@@ -67,3 +69,13 @@ document.getElementById("logout").addEventListener("click", (e) => {
         window.location.href="./index.html";
     }
 })
+
+
+
+const recomendacion = document.getElementById('recomendacion');
+const objetivo = document.getElementById('objetivo');
+const user_name_part = document.getElementById('user_name');
+
+recomendacion.textContent ="hola mundo, es la top recomendacion de ia";
+objetivo.textContent = "te recuerdo que este es tu objetivo pibe xd";
+let user_name = obtenerNombre(5);

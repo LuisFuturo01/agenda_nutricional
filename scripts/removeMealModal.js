@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mealName = document.getElementById('mealNameRemove').value;
         const mealDate = `${window.currentYear}-${String(window.currentMonth + 1).padStart(2, '0')}-${String(window.selectedDay).padStart(2, '0')}`;
-        const id_user = 1; // cambiar por el usuario con cookie
+        const id_user = window.idUser;
 
         try {
             const resultado = await consultarAlimentoDelDia(mealName, mealDate);
