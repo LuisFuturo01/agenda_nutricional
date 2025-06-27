@@ -22,47 +22,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    addMealForm.addEventListener('submit', (e) => {
+    addMealForm.addEventListener('submit', async (e) => {
         e.preventDefault(); 
 
         const mealName = document.getElementById('mealName').value;
         const mealQuantity = document.getElementById('mealQuantity').value;
+        const mealDate = `${window.currentYear}-${String(window.currentMonth + 1).padStart(2, '0')}-${String(window.selectedDay).padStart(2, '0')}`;
+        const id_user = 1; // Cambiar por el ID real del usuario
 
-        let mealDate = `${window.currentYear}-${String(window.currentMonth + 1).padStart(2, '0')}-${String(window.selectedDay).padStart(2, '0')}`;
-
-        /* endpoint a añadirAlimento.php */
-        
-
-            document.getElementById("addMealForm").addEventListener("submit", (e) => {
-                e.preventDefault();
-                const alimento = document.getElementById("mealName").value;
-                const cantidad = document.getElementById("mealQuantity").value;
-                const fecha = mealDate;
-                const id_user = 1; //modificar luego por el id del cookie
-                let sw = consultarAlimento(alimento);
-                if(sw['estado']=== 'ok'){
-                    registroAlimentoDelDia(id_user, sw['id'], cantidad, fecha);
-                }else{
-                    //consultas a la IA
-                    const alimento = document.getElementById("mealName").value;
-                    const cantidad = document.getElementById("mealQuantity").value;
-                    const fecha = mealDate;
-                    const calorias = "550"
-                    const proteinas = "30"
-                    const grasas = "20"
-                    const carbohidratos = "40"
-                    agregarNuevoAlimento(alimento, calorias, proteinas, grasas, carbohidratos, cantidad, fecha);
+        try {
+            // Verificar si el alimento existe
+            const resultado = await consultarAlimento(mealName);
+            
+            if (resultado.estado === 'ok') {
+                // El alimento existe, registrarlo
+                await registroAlimentoDelDia(id_user, resultado.id, mealQuantity, mealDate);
+                alert('Comida registrada correctamente');
+            } else {
+                // El alimento no existe, crear uno nuevo con datos de IA
+                const calorias = "550"; // Aquí deberías consultar a la IA
+                const proteinas = "30";
+                const grasas = "20";
+                const carbohidratos = "40";
+                
+                const response = await agregarNuevoAlimento(
+                    mealName, calorias, proteinas, grasas, 
+                    carbohidratos, id_user, mealQuantity, mealDate
+                );
+                
+                if (response.estado === 'ok') {
+                    alert('Nuevo alimento añadido correctamente');
+                } else {
+                    alert('Error al añadir alimento: ' + response.mensaje);
                 }
-            });
-
-        /* Cerrar endpoint */
-        console.log('Enviando datos de comida:', { mealName, mealQuantity, mealDate });
-
-        alert(`Comida registrada (simulado): ${mealName}, ${mealQuantity}g el ${mealDate}`);
-
-        addMealModal.style.display = 'none';
-        addMealForm.reset(); 
-
-        /* Falta modulo de añadir alimento al detalle del dia */
+            }
+            
+            addMealModal.style.display = 'none';
+            addMealForm.reset();
+            
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al procesar la solicitud');
+        }
     });
 });

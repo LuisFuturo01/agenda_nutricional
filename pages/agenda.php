@@ -68,7 +68,8 @@
                     <ul id="mealsList">
                         <li>Cargando comidas...</li>
                     </ul>
-                    <button class="add-item-button" id="addMealBtn">Añadir Comida</button>
+                    <button class="add-item-button" id="addMealBtn">Añadir Comida</button> 
+                    <button class="add-item-button" id="removeMealBtn">Quitar comida</button>
                 </div>
 
                 <div class="info-content">
@@ -100,7 +101,8 @@
         </div>
     </div>
 <?php
-    include './components/mealModa.php';
+    include './components/mealModalAdd.php';
+    include './components/mealModalRemove.php';
     include './components/exerciseModal.php';
     include './components/progressModal.php';
 ?>
@@ -112,5 +114,6 @@
     <script type="module" src="../scripts/agenda.js"></script>
     <script type="module" src="../scripts/addMealModal.js"></script>
     <script type="module" src="../scripts/addExerciseModal.js"></script>
+    <script type="module" src="../scripts/removeMealModal.js"></script>
 </body>
 </html>
